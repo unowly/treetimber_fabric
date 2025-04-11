@@ -1,11 +1,11 @@
 {
 	"schemaVersion": 1,
 	"id": "treetimber",
-	"version": "${version}",
+	"version": "v1.0",
 	"name": "TreeTimber",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "Chop down whole trees by simply typing /timber",
 	"authors": [
-		"Me!"
+		"unowly"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
