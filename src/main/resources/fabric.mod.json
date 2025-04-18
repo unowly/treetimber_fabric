@@ -29,7 +29,7 @@
 		"treetimber.mixins.json",
 		{
 			"config": "treetimber.client.mixins.json",
-			"environment": "client"
+			"environment": "*"
 		}
 	],
 	"depends": {
