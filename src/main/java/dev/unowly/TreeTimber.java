@@ -24,6 +24,7 @@ public class TreeTimber implements ModInitializer {
 
 	private final Set<Identifier> woodBlockIds = new HashSet<>();
 	private final ConcurrentHashMap<UUID, Boolean> timberEnabled = new ConcurrentHashMap<>();
+	
 
 	@Override
 	public void onInitialize() {
