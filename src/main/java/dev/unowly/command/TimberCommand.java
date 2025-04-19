@@ -4,7 +4,6 @@ import com.mojang.brigadier.CommandDispatcher;
 import dev.unowly.networking.packet.TimberModeS2CPayload;
 import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -30,13 +29,14 @@ public class TimberCommand {
                     if (context.getSource().getEntity() instanceof ServerPlayerEntity player) {
                         UUID playerId = player.getUuid();
                         boolean isEnabled = timberEnabled.getOrDefault(playerId, false);
-                        timberEnabled.put(playerId, !isEnabled);
+                        boolean newValue = !isEnabled;
+                        timberEnabled.put(playerId, newValue);
                         World world = player.getEntityWorld();
                         if(world.isClient()){
                             return 1;
                         }
 
-                        TimberModeS2CPayload payload = new TimberModeS2CPayload(isEnabled);
+                        TimberModeS2CPayload payload = new TimberModeS2CPayload(newValue);
                         for (ServerPlayerEntity serverPlayer : PlayerLookup.world((ServerWorld) world)) {
                             ServerPlayNetworking.send(serverPlayer, payload);
                         }
@@ -49,7 +49,7 @@ public class TimberCommand {
                         );
                         return 1;
                     } else {
-                        context.getSource().sendError(Text.literal("Dieser Befehl kann nur von Spielern ausgeführt werden."));
+                        context.getSource().sendError(Text.literal("This command can only be used by a player."));
                         return 0;
                     }
                 })
