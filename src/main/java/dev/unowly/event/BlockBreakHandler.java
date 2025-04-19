@@ -1,6 +1,5 @@
 package dev.unowly.event;
 
-import dev.unowly.TreeTimber;
 import dev.unowly.util.TreeFellingUtil;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;

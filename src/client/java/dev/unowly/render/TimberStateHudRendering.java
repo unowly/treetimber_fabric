@@ -4,7 +4,6 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.render.RenderTickCounter;
-import net.minecraft.text.Text;
 
 public class TimberStateHudRendering {
 
@@ -23,7 +22,7 @@ public class TimberStateHudRendering {
         int screenHeight = context.getScaledWindowHeight();
 
         int x = (screenWidth - renderer.getWidth(message)) / 2;
-        int y = screenHeight - 50;
+        int y = screenHeight - 60;
 
         context.drawText(renderer, message, x, y, 0xFFFF0000, true);
     }
