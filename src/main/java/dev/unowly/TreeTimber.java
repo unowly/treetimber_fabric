@@ -4,12 +4,14 @@ import dev.unowly.command.TimberCommand;
 import dev.unowly.event.BlockBreakHandler;
 import dev.unowly.event.PlayerJoinHandler;
 import dev.unowly.networking.packet.TimberModeS2CPayload;
+import net.fabricmc.api.EnvType;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
@@ -31,7 +33,9 @@ public class TreeTimber implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		LOGGER.info("TreeTimber 1.21.5 initializing...");
-		PayloadTypeRegistry.playS2C().register(TimberModeS2CPayload.ID, TimberModeS2CPayload.CODEC);
+		if (FabricLoader.getInstance().getEnvironmentType() == EnvType.SERVER) {
+			PayloadTypeRegistry.playS2C().register(TimberModeS2CPayload.ID, TimberModeS2CPayload.CODEC);
+		}
 
 		Registries.BLOCK.forEach(block -> {
 			Identifier identifier = Registries.BLOCK.getId(block);
