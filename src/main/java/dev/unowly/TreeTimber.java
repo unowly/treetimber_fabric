@@ -31,7 +31,7 @@ public class TreeTimber implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		LOGGER.info("TreeTimber 1.21.5 initializing...");
-		PayloadTypeRegistry.playC2S().register(TimberModeS2CPayload.ID, TimberModeS2CPayload.CODEC);
+		PayloadTypeRegistry.playS2C().register(TimberModeS2CPayload.ID, TimberModeS2CPayload.CODEC);
 
 		Registries.BLOCK.forEach(block -> {
 			Identifier identifier = Registries.BLOCK.getId(block);
