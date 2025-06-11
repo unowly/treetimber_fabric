@@ -1,5 +1,6 @@
 package dev.unowly;
 
+import dev.unowly.event.KeyInputHandler;
 import dev.unowly.networking.PayloadHandler;
 import dev.unowly.networking.packet.TimberModeS2CPayload;
 import dev.unowly.render.TimberStateHudRendering;
@@ -18,6 +19,8 @@ public class TreeTimberClient implements ClientModInitializer {
 	public void onInitializeClient() {
 		PayloadTypeRegistry.playS2C().register(TimberModeS2CPayload.ID, TimberModeS2CPayload.CODEC);
 		PayloadHandler.register();
+
+		KeyInputHandler.register();
 
 		HudLayerRegistrationCallback.EVENT.register(layeredDrawer
 				-> layeredDrawer.attachLayerBefore(IdentifiedLayer.CHAT, TIMBER_MODE, TimberStateHudRendering::render));
