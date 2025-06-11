@@ -15,7 +15,7 @@ public class KeyInputHandler {
     public static void registerKeyInputs() {
         ClientTickEvents.END_CLIENT_TICK.register(client -> {;
             if (timberKey != null && timberKey.wasPressed()) {
-
+                client.player.networkHandler.sendCommand("timber");
             }
         });
     }
