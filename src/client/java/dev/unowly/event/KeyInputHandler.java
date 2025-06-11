@@ -8,7 +8,7 @@ import org.lwjgl.glfw.GLFW;
 
 public class KeyInputHandler {
     public static final String KEY_CATEGORY_TREE_TIMBER = "key.category.treetimber.treetimber";
-    public static final String KEY_TREE_TIMBER = "key..treetimber.timber";
+    public static final String KEY_TREE_TIMBER = "key.treetimber.timber";
 
     public static KeyBinding timberKey;
 
