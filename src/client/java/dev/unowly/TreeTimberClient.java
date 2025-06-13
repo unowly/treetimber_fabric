@@ -4,6 +4,7 @@ import dev.unowly.event.KeyInputHandler;
 import dev.unowly.networking.PayloadHandler;
 import dev.unowly.networking.packet.TimberModeS2CPayload;
 import dev.unowly.render.TimberStateHudRendering;
+import dev.unowly.ui.TreeTimberModMenu;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.HudLayerRegistrationCallback;
 import net.fabricmc.fabric.api.client.rendering.v1.IdentifiedLayer;

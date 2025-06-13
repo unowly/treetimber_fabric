@@ -1,6 +1,7 @@
 package dev.unowly;
 
 import dev.unowly.command.TimberCommand;
+import dev.unowly.config.ModConfig;
 import dev.unowly.event.BlockBreakHandler;
 import dev.unowly.event.PlayerJoinHandler;
 import dev.unowly.networking.packet.TimberModeS2CPayload;
@@ -33,6 +34,8 @@ public class TreeTimber implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		LOGGER.info("TreeTimber 1.21.5 initializing...");
+		ModConfig.init();
+
 		if (FabricLoader.getInstance().getEnvironmentType() == EnvType.SERVER) {
 			PayloadTypeRegistry.playS2C().register(TimberModeS2CPayload.ID, TimberModeS2CPayload.CODEC);
 		}
