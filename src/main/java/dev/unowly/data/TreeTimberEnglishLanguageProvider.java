@@ -15,5 +15,17 @@ public class TreeTimberEnglishLanguageProvider extends FabricLanguageProvider {
     public void generateTranslations(RegistryWrapper.WrapperLookup wrapperLookup, TranslationBuilder translationBuilder) {
         translationBuilder.add("key.category.treetimber.treetimber", "TreeTimber");
         translationBuilder.add("key.treetimber.timber", "Toggle TreeTimber");
+
+        //Cloth Config
+        translationBuilder.add("text.autoconfig.TreeTimber.title"," TreeTimber Settings");
+
+        translationBuilder.add("text.autoconfig.TreeTimber.option.damagePerBlock", "Damage Tool per Block");
+        translationBuilder.add("text.autoconfig.TreeTimber.option.damagePerBlock.@Tooltip", "If enabled, the tool takes 1 durability per log broken.");
+
+        translationBuilder.add("text.autoconfig.TreeTimber.option.allowNonAxes", "Allow All Tools");
+        translationBuilder.add("text.autoconfig.TreeTimber.option.allowNonAxes.@Tooltip", "If disabled, only axes can trigger tree felling.");
+
+        translationBuilder.add("text.autoconfig.TreeTimber.option.maxLogsBrocken", "Max Logs Broken");
+        translationBuilder.add("text.autoconfig.TreeTimber.option.maxLogsBrocken.@Tooltip", "Limits how many logs can be broken at once to prevent lag.");
     }
 }

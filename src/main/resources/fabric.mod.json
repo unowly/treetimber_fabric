@@ -22,7 +22,11 @@
 			"dev.unowly.TreeTimberClient"
 		],
 		"fabric-datagen": [
+			"dev.unowly.TreeTimberClientDataGenerator",
 			"dev.unowly.TreeTimberDataGenerator"
+		],
+		"modmenu": [
+			"dev.unowly.ui.TreeTimberModMenu"
 		]
 	},
 	"mixins": [
@@ -36,7 +40,14 @@
 		"fabricloader": ">=0.16.13",
 		"minecraft": "~1.21.5",
 		"java": ">=21",
-		"fabric-api": "*"
+		"fabric-api": "*",
+		"modmenu": "*",
+		"cloth-config": ">=18.0.145"
+	},
+	"custom": {
+		"modmenu:mods": [
+			"com.unowly.treetimber.client.TreetimberModMenu"
+		]
 	},
 	"suggests": {
 		"another-mod": "*"

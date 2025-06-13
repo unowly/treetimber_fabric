@@ -1,8 +1,10 @@
 package dev.unowly.event;
 
+import dev.unowly.config.ModConfig;
 import dev.unowly.util.TreeFellingUtil;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Identifier;
@@ -29,13 +31,16 @@ public class BlockBreakHandler {
         if (!world.isClient() && timberEnabled.getOrDefault(player.getUuid(), false)) {
             Identifier blockId = Registries.BLOCK.getId(state.getBlock());
             if (woodBlockIds.contains(blockId)) {
-                treeFellingUtil.findAndBreakConnectedWood((ServerWorld) world, pos, player, player.getMainHandStack());
-                return false;
-            } else {
+                ItemStack tool = player.getMainHandStack();
+
+                if (ModConfig.CONFIG.allowNonAxes || treeFellingUtil.isAxe(tool)) {
+                    treeFellingUtil.findAndBreakConnectedWood((ServerWorld) world, pos, player, tool);
+                    return false;
+                }
+
                 return true;
             }
-        } else {
-            return true;
         }
+        return true;
     }
 }
