@@ -1,6 +1,6 @@
 package dev.unowly;
 
-import dev.unowly.data.TreeTimberEnglishLanguageProvider;
+import dev.unowly.data.*;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 
@@ -11,5 +11,10 @@ public class TreeTimberDataGenerator implements DataGeneratorEntrypoint {
 
 //LANGUAGE PROVIDER
         pack.addProvider(TreeTimberEnglishLanguageProvider::new);
+        pack.addProvider(TreeTimberGermanLanguageProvider::new);
+        pack.addProvider(TreeTimberFrenchLanguageProvider::new);
+        pack.addProvider(TreeTimberItalianLanguageProvider::new);
+        pack.addProvider(TreeTimberRussianLanguageProvider::new);
+        pack.addProvider(TreeTimberSpanishLanguageProvider::new);
     }
 }

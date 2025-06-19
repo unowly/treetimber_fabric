@@ -1,9 +1,11 @@
 package dev.unowly;
 
+import dev.unowly.config.TreeTimberConfig;
 import dev.unowly.event.KeyInputHandler;
 import dev.unowly.networking.PayloadHandler;
 import dev.unowly.networking.packet.TimberModeS2CPayload;
 import dev.unowly.render.TimberStateHudRendering;
+import me.shedaniel.autoconfig.AutoConfig;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElementRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.hud.VanillaHudElements;
@@ -21,6 +23,9 @@ public class TreeTimberClient implements ClientModInitializer {
 		PayloadHandler.register();
 
 		KeyInputHandler.register();
+
+		TreeTimberConfig config = AutoConfig.getConfigHolder(TreeTimberConfig.class).getConfig();
+		TimberStateHudRendering.setConfig(config);
 
 		HudElementRegistry.attachElementBefore(
 				VanillaHudElements.CHAT,

@@ -15,7 +15,7 @@ public class PayloadHandler {
             }
 
             Boolean enabled = payload.enabled();
-            TimberStateHudRendering.timberActive = enabled;
+            TimberStateHudRendering.setTimberActive(enabled);
         });
     }
 }

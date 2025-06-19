@@ -2,12 +2,10 @@ package dev.unowly.command;
 
 import com.mojang.brigadier.CommandDispatcher;
 import dev.unowly.networking.packet.TimberModeS2CPayload;
-import net.fabricmc.fabric.api.networking.v1.PlayerLookup;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.world.World;
@@ -32,6 +30,7 @@ public class TimberCommand {
                         boolean newValue = !isEnabled;
                         timberEnabled.put(playerId, newValue);
                         World world = player.getWorld();
+
                         if(world.isClient()){
                             return 1;
                         }
@@ -40,9 +39,11 @@ public class TimberCommand {
                         ServerPlayNetworking.send(player, payload);
 
                         player.sendMessage(
-                                Text.literal("Tree").formatted(Formatting.GREEN).append(Text.literal("Timber").formatted(Formatting.DARK_GREEN))
+                                Text.literal("Tree").formatted(Formatting.GREEN)
+                                        .append(Text.literal("Timber").formatted(Formatting.DARK_GREEN))
                                         .append(Text.literal(" is now "))
-                                        .append(Text.literal(isEnabled ? "deactivated" : "activated").formatted(isEnabled ? Formatting.YELLOW : Formatting.RED))
+                                        .append(Text.literal(newValue ? "activated" : "deactivated")
+                                                .formatted(newValue ? Formatting.GREEN : Formatting.RED))
                                         .append(Text.literal(".")),
                                 false
                         );
