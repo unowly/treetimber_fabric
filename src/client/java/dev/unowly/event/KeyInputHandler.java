@@ -20,7 +20,7 @@ public class KeyInputHandler {
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             if (timberKey != null && timberKey.wasPressed()) {
                 if (client.player != null) {
-                    client.player.networkHandler.sendCommand("timber");
+                    client.player.networkHandler.sendChatCommand("timber");
                 }
             }
 

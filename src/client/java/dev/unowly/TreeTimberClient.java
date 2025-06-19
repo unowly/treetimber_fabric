@@ -4,10 +4,9 @@ import dev.unowly.event.KeyInputHandler;
 import dev.unowly.networking.PayloadHandler;
 import dev.unowly.networking.packet.TimberModeS2CPayload;
 import dev.unowly.render.TimberStateHudRendering;
-import dev.unowly.ui.TreeTimberModMenu;
 import net.fabricmc.api.ClientModInitializer;
-import net.fabricmc.fabric.api.client.rendering.v1.HudLayerRegistrationCallback;
-import net.fabricmc.fabric.api.client.rendering.v1.IdentifiedLayer;
+import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElementRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.hud.VanillaHudElements;
 import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
 import net.minecraft.util.Identifier;
 
@@ -23,8 +22,11 @@ public class TreeTimberClient implements ClientModInitializer {
 
 		KeyInputHandler.register();
 
-		HudLayerRegistrationCallback.EVENT.register(layeredDrawer
-				-> layeredDrawer.attachLayerBefore(IdentifiedLayer.CHAT, TIMBER_MODE, TimberStateHudRendering::render));
+		HudElementRegistry.attachElementBefore(
+				VanillaHudElements.CHAT,
+				TIMBER_MODE,
+				TimberStateHudRendering::render
+		);
 	}
 
 	public static void setTimberEnabled(boolean enabled) {

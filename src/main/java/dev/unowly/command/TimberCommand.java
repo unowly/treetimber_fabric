@@ -31,15 +31,14 @@ public class TimberCommand {
                         boolean isEnabled = timberEnabled.getOrDefault(playerId, false);
                         boolean newValue = !isEnabled;
                         timberEnabled.put(playerId, newValue);
-                        World world = player.getEntityWorld();
+                        World world = player.getWorld();
                         if(world.isClient()){
                             return 1;
                         }
 
                         TimberModeS2CPayload payload = new TimberModeS2CPayload(newValue);
-                        for (ServerPlayerEntity serverPlayer : PlayerLookup.world((ServerWorld) world)) {
-                            ServerPlayNetworking.send(serverPlayer, payload);
-                        }
+                        ServerPlayNetworking.send(player, payload);
+
                         player.sendMessage(
                                 Text.literal("Tree").formatted(Formatting.GREEN).append(Text.literal("Timber").formatted(Formatting.DARK_GREEN))
                                         .append(Text.literal(" is now "))

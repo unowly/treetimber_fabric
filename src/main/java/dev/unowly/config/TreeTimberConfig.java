@@ -9,4 +9,5 @@ public class TreeTimberConfig implements ConfigData {
     public boolean damagePerBlock = true;
     public boolean allowNonAxes = false;
     public int maxLogsBrocken = 256;
+    public boolean replantSaplings = true;
 }

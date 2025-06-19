@@ -15,6 +15,7 @@ public class TreeTimberEnglishLanguageProvider extends FabricLanguageProvider {
     public void generateTranslations(RegistryWrapper.WrapperLookup wrapperLookup, TranslationBuilder translationBuilder) {
         translationBuilder.add("key.category.treetimber.treetimber", "TreeTimber");
         translationBuilder.add("key.treetimber.timber", "Toggle TreeTimber");
+        translationBuilder.add("key.treetimber.timber_config", "TreeTimber Config");
 
         //Cloth Config
         translationBuilder.add("text.autoconfig.TreeTimber.title"," TreeTimber Settings");
@@ -27,5 +28,8 @@ public class TreeTimberEnglishLanguageProvider extends FabricLanguageProvider {
 
         translationBuilder.add("text.autoconfig.TreeTimber.option.maxLogsBrocken", "Max Logs Broken");
         translationBuilder.add("text.autoconfig.TreeTimber.option.maxLogsBrocken.@Tooltip", "Limits how many logs can be broken at once to prevent lag.");
+
+        translationBuilder.add("config.treetimber.replantSapling", "Replant Saplings");
+        translationBuilder.add("config.treetimber.replantSapling.@Tooltip", "If true, saplings will be planted after a tree is felled.");
     }
 }
