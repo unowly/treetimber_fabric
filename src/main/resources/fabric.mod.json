@@ -1,7 +1,7 @@
 {
 	"schemaVersion": 1,
 	"id": "treetimber",
-	"version": "3.0.1",
+	"version": "${version}",
 	"name": "unowly's TreeTimber",
 	"description": "Chop down whole trees by simply typing /timber",
 	"authors": [
